@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 
 df=pd.read_csv(r'C:\Users\ramgo\OneDrive\Desktop\Learn\DiwaliSalesAnalysis\DiwaliSales\Diwali Sales Data.csv', encoding='windows-1252')
 
@@ -26,5 +27,6 @@ df['Amount'].dtype
 #Renaming Martial Status values as Not Married and Married.
 df['Marital_Status'] = df['Marital_Status'].replace({0: 'Not Married', 1: 'Married'})
 
-print(df[['Age', 'Amount', 'Orders']].describe())
 
+#Now let's save standardized data to perform eda.
+df.to_csv("CleanedData.csv")
