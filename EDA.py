@@ -7,8 +7,8 @@ import seaborn as sb
 
 df=pd.read_csv(r'C:\Users\ramgo\OneDrive\Desktop\Learn\DiwaliSalesAnalysis\DiwaliSales\CleanedData.csv')
 
-#rpt=ProfileReport(df, title="Final Data")
-#rpt.to_file("FinalData.html")
+rpt=ProfileReport(df, title="Final Data")
+rpt.to_file("FinalData.html")
 
 amt_by_gender=df.groupby('Gender')['Amount'].sum()
 print(amt_by_gender)
@@ -41,3 +41,18 @@ for bars in tv.containers:
 #This gives the same but also includes values
 
 #This conlcudes most of the buyers are females from 26-35 age.
+
+
+state_amount=df.groupby('State')['Amount'].sum()
+print(state_amount)
+#We can see the amount spent for diwali from each state.
+
+
+#We can see numbers of orders was placed from each state
+state_orders=df.groupby('State')['Orders'].sum().sort_values(ascending=False)
+state_orders.plot(kind='bar')
+plt.xlabel('State')
+plt.ylabel('Orders')
+plt.show()
+
+
