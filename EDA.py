@@ -63,9 +63,25 @@ marital_analysis.plot(kind='bar',xlabel='Marital_Status', ylabel='Amount')
 occupation_analysis=df.groupby('Occupation')['Amount'].sum().sort_values(ascending=False)
 print(occupation_analysis)
 occupation_analysis.plot(kind='bar', xlabel='Occupation', ylabel='Amount')
-#Here we can see that It sector people are spending more and Agriculture sector people are least spending.
 
 plt.figure(figsize=(20, 6))
 oa=sb.countplot(df,x='Occupation')
 for bars in oa.containers:
   oa.bar_label(bars)
+
+#Here we can see that It sector people are spending more and Agriculture sector people are least spending.
+
+
+product_cat_analysis=df.groupby('Product_Category')['Amount'].sum().sort_values(ascending=False)
+print(product_cat_analysis)
+#We can see Food items were being purchased a lot.
+
+df.groupby('Product_ID')['Orders'].sum().sort_values(ascending=False)
+
+
+
+#Final Analysis.....
+'''
+We can conlcude that women btw age group 26-35 from Up, Maharashtra working in IT, Aviation, Health Sector
+ likely to buy/spend more on food items, clothing.....
+'''
