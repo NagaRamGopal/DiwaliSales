@@ -56,3 +56,16 @@ plt.ylabel('Orders')
 plt.show()
 
 
+marital_analysis=df.groupby('Marital_Status')['Amount'].sum()
+marital_analysis.plot(kind='bar',xlabel='Marital_Status', ylabel='Amount')
+#Here we can see that persons who are not married are spending more.
+
+occupation_analysis=df.groupby('Occupation')['Amount'].sum().sort_values(ascending=False)
+print(occupation_analysis)
+occupation_analysis.plot(kind='bar', xlabel='Occupation', ylabel='Amount')
+#Here we can see that It sector people are spending more and Agriculture sector people are least spending.
+
+plt.figure(figsize=(20, 6))
+oa=sb.countplot(df,x='Occupation')
+for bars in oa.containers:
+  oa.bar_label(bars)
